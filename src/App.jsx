@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import React from 'react'
 
 import './index.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App () {
   return (
     <div className="flex bg-white">
       <h1 className="text-6xl font-bold">
