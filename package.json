@@ -9,8 +9,11 @@
     "lint": "eslint \"**/*.{js,jsx}\""
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.20.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
