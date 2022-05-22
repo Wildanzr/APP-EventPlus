@@ -2,12 +2,12 @@ import React from 'react'
 
 import './index.css'
 
+import Login from './Pages/Auth/Login'
+
 function App () {
   return (
     <div className="flex bg-white">
-      <h1 className="text-6xl font-bold">
-        Hello world!
-      </h1>
+      <Login />
     </div>
   )
 }
