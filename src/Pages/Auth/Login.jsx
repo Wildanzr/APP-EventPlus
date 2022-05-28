@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SideHero from '../../Components/Auth/SideHero'
-import LoginForm from '../../Components/Auth/LoginForm'
+import LoginForm from '../../Components/Auth/Auth'
 
 import Hero from '../../Images/hero1.png'
 import LogoEvent from '../../Images/logoevent.jpg'
