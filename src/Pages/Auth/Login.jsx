@@ -13,12 +13,12 @@ const Login = () => {
         <div className="flex w-6/12 bg-[#F2F5FA] items-center place-content-center">
           <SideHero
             title={
-              <p>
+              <>
                 Hi
-                <span className="text-[#003366] font-black"> Event Folks</span>
+                <span className="text-[#003366] font-black my-0"> Event Folks</span>
                 <br />
                 Selamat Datang!
-              </p>
+              </>
             }
             subtitle="Kami sangat senang berjumpa denganmu lagi."
             hero={Hero}

@@ -13,8 +13,8 @@ const SideHero = ({ title, subtitle, hero }) => {
         </p>
       </div>
 
-      <div className="flex mt-5">
-        <img src={hero} alt="hero" className="w-full h-auto" />
+      <div className="flex mt-5 justify-center">
+        <img src={hero} alt="hero" className="w-10/12 h-auto" />
       </div>
     </div>
   )
