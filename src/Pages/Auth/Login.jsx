@@ -25,7 +25,7 @@ const Login = () => {
           />
         </div>
 
-        <div className="flex w-6/12 bg-slate-200 items-center place-content-center">
+        <div className="flex w-6/12 bg-slate-200 items-center place-content-center overflow-x-auto no-scrollbar">
           <LoginForm logo={LogoEvent} />
         </div>
       </div>

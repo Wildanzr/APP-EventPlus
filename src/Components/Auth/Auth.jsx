@@ -19,7 +19,7 @@ const Login = ({ logo }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-col mb-20 w-10/12">
+      <div className="flex flex-col mb-10 w-10/12">
         <img src={logo} alt="logo" className="w-4/12 h-auto rounded-lg my-4" />
         <p className="font-nunito text-lg font-bold text-left mb-2">
           Let&apos;s get started!

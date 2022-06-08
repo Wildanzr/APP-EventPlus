@@ -5,10 +5,10 @@ const SideHero = ({ title, subtitle, hero }) => {
   return (
     <div className="flex flex-col items-center">
       <div className="flex flex-col">
-        <h3 className="font-josefin text-5xl font-bold text-left">
+        <h3 className="font-josefin text-5xl font-bold text-left my-0">
           {title}
         </h3>
-        <p className="font-josefin text-sm text-left text-[#003366]">
+        <p className="font-josefin text-lg text-left text-[#003366]">
           {subtitle}
         </p>
       </div>
