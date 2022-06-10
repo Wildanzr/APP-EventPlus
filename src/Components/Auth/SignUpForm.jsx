@@ -2,7 +2,7 @@ import React from 'react'
 
 import FormField from './FormField'
 
-const LoginForm = () => {
+const SignUpForm = () => {
   return (
     <div className="flex w-full justify-center font-josefin">
       <form className="flex flex-col w-10/12">
@@ -24,14 +24,20 @@ const LoginForm = () => {
         </div>
 
         <FormField label="Email" type="email" name="email" id="email" />
+        <FormField label="Phone" type="text" name="phone" id="phone" />
+        <FormField label="Address" type="text" name="address" id="address" />
         <FormField
           label="Password"
           type="password"
           name="password"
           id="password"
         />
-        <FormField label="Phone" type="text" name="phone" id="phone" />
-        <FormField label="Address" type="text" name="address" id="address" />
+        <FormField
+          label="Confirm Password"
+          type="password"
+          name="ref"
+          id="ref"
+        />
 
         <div className="flex justify-end mx-5">
           <input
@@ -45,4 +51,4 @@ const LoginForm = () => {
   )
 }
 
-export default LoginForm
+export default SignUpForm
