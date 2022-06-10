@@ -7,6 +7,7 @@ import Company from '../../Images/company.png'
 import Event from '../../Images/event.png'
 
 import RoleCard from './RoleCard'
+import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
 const Login = ({ logo }) => {
@@ -72,7 +73,8 @@ const Login = ({ logo }) => {
           )
         : (
         <div className="flex h-72 w-full mb-40">
-          <SignUpForm className="flex items-center justify-center" />
+          <LoginForm />
+          {/* <SignUpForm className="flex items-center justify-center" /> */}
         </div>
           )}
     </div>
