@@ -6,17 +6,34 @@ import './Auth.css'
 import Company from '../../Images/company.png'
 import Event from '../../Images/event.png'
 
-import RoleCard from './RoleCard'
-import LoginForm from './LoginForm'
-import SignUpForm from './SignUpForm'
+import RoleForm from './Forms/RoleForm'
+import LoginForm from './Forms/LoginForm'
+import SignUpForm from './Forms/SignUpForm'
 
-const Login = ({ logo }) => {
+const Auth = ({ logo }) => {
   // Local state
   const [auth, setAuth] = useState(true)
+  const [role, setRole] = useState(true)
+  const [selectedRole, setSelectedRole] = useState('')
+  const [type] = useState([
+    {
+      name: 'COMPANY SPONSOR',
+      image: Company
+    },
+    {
+      name: 'EVENT ORGANIZER',
+      image: Event
+    }
+  ])
 
-  const authMethod = (method) => {
-    console.log(`Clicked ${method}`)
+  const authState = (method) => {
     setAuth(method)
+
+    if (auth) setRole(true)
+  }
+
+  const roleState = () => {
+    setRole(!role)
   }
 
   return (
@@ -32,7 +49,7 @@ const Login = ({ logo }) => {
               type="radio"
               name="room_type"
               id="roomPrivate"
-              onClick={() => authMethod(true)}
+              onClick={() => authState(true)}
               defaultChecked
               hidden
             />
@@ -48,7 +65,7 @@ const Login = ({ logo }) => {
               type="radio"
               name="room_type"
               id="roomPublic"
-              onClick={() => authMethod(false)}
+              onClick={() => authState(false)}
               hidden
             />
             <label
@@ -63,22 +80,27 @@ const Login = ({ logo }) => {
 
       {!auth
         ? (
-        <div className="flex flex-col h-72 mb-40">
-
-          <div className="flex flex-row my-10">
-            <RoleCard role="COMPANY SPONSOR" image={Company} />
-            <RoleCard role="EVENT ORGANIZER" image={Event} />
-          </div>
+        <div className="flex flex-col h-72 w-full mb-40">
+          {role
+            ? (
+            <RoleForm
+              type={type}
+              roleState={roleState}
+              selectRole={setSelectedRole}
+            />
+              )
+            : (
+            <SignUpForm selectedRole={selectedRole} roleState={roleState}/>
+              )}
         </div>
           )
         : (
         <div className="flex h-72 w-full mb-40">
           <LoginForm />
-          {/* <SignUpForm className="flex items-center justify-center" /> */}
         </div>
           )}
     </div>
   )
 }
 
-export default Login
+export default Auth

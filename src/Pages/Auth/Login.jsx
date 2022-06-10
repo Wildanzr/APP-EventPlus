@@ -6,6 +6,8 @@ import LoginForm from '../../Components/Auth/Auth'
 import Hero from '../../Images/hero1.png'
 import LogoEvent from '../../Images/logoevent.jpg'
 
+import './CustomScrollbar.css'
+
 const Login = () => {
   return (
     <div className="container mx-auto h-screen bg-zinc-200">
@@ -25,7 +27,7 @@ const Login = () => {
           />
         </div>
 
-        <div className="flex w-6/12 bg-slate-200 items-center place-content-center overflow-x-auto no-scrollbar">
+        <div className="flex w-6/12 bg-slate-200 items-center place-content-center overflow-x-auto no-scrollbar style-5">
           <LoginForm logo={LogoEvent} />
         </div>
       </div>
