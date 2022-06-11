@@ -1,8 +1,9 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react'
-import { Form, Input, Button, Checkbox, Select, message } from 'antd'
+import { Form, Input, Button, Checkbox, Select, Modal, message } from 'antd'
 import PhoneInput from 'react-phone-input-2'
+
 import 'react-phone-input-2/lib/style.css'
 import './PhoneInput.css'
 
@@ -74,8 +75,33 @@ const SignUpForm = ({ selectedRole, roleState }) => {
     console.log('Failed:', errorInfo)
   }
 
+  const showTerms = () => {
+    Modal.info({
+      title: 'EventPlus Terms and Conditions',
+      width: '80%',
+      content: (
+        <div className="flex flex-col">
+          <p>
+          We agree to provide you with the Instagram Service. The Service includes all of the Instagram products, features, applications, services, technologies and software that we provide to advance Instagram&apos;s mission: To bring you closer to the people and things you love. The Service is made up of the following aspects:
+          <br/>
+          <br/>
+          People are different. We want to strengthen your relationships through shared experiences that you actually care about. So we build systems that try to understand who and what you and others care about, and use that information to help you create, find, join and share in experiences that matter to you. Part of that is highlighting content, features, offers and accounts that you might be interested in, and offering ways for you to experience Instagram, based on things that you and others do on and off Instagram.
+          <br/>
+          <br/>
+          We develop and use tools and offer resources to our community members that help to make their experiences positive and inclusive, including when we think they might need help. We also have teams and systems that work to combat abuse and breaches of our Terms and Policies, as well as harmful and deceptive behaviour. We use all the information we have – including your information – to try to keep our platform secure. We may also share information about misuse or harmful content with other Meta Companies or law enforcement.
+          <br/>
+          <br/>
+          Organising and analysing information for our growing community is central to our Service. A big part of our Service is creating and using cutting-edge technologies that help us personalise, protect and improve our Service on an incredibly large scale for a broad global community. Technologies such as artificial intelligence and machine learning give us the power to apply complex processes across our Service. Automated technologies also help us to ensure the functionality and integrity of our Service
+          </p>
+        </div>
+      ),
+
+      onOk () {}
+    })
+  }
+
   return (
-    <div className="flex w-full px-10 py-5 justify-center font-josefin">
+    <div className="flex w-full px-10 py-5 justify-center font-nunito">
       <Form
         name="basic"
         initialValues={{
@@ -129,7 +155,7 @@ const SignUpForm = ({ selectedRole, roleState }) => {
           <Checkbox defaultChecked={agreed} onChange={() => {
             setAgreed(!agreed)
           }}>
-            I have read and agree to the <a href="">terms and conditions</a>
+            I have read and agree to the <a onClick={() => showTerms()}>terms and condition</a>
           </Checkbox>
         </Form.Item>
 

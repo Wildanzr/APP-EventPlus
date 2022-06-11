@@ -1,7 +1,7 @@
 import React from 'react'
 
-import SideHero from '../../Components/Auth/SideHero'
-import LoginForm from '../../Components/Auth/Auth'
+import SideHero from '../../Components/Auth/Utils/SideHero'
+import Auth from '../../Components/Auth/Auth'
 
 import Hero from '../../Images/hero1.png'
 import LogoEvent from '../../Images/logoevent.jpg'
@@ -28,7 +28,7 @@ const Login = () => {
         </div>
 
         <div className="flex w-6/12 bg-slate-200 items-center place-content-center overflow-x-auto no-scrollbar style-5">
-          <LoginForm logo={LogoEvent} />
+          <Auth logo={LogoEvent} />
         </div>
       </div>
     </div>
