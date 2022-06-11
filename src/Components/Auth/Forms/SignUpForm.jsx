@@ -118,7 +118,7 @@ const SignUpForm = ({ selectedRole, roleState }) => {
           </Form.Item>
 
           <Form.Item name="username" className="w-4/12">
-            <Input placeholder="username" />
+            <Input placeholder="Username" />
           </Form.Item>
         </div>
 

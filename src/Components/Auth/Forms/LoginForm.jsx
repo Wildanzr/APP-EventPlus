@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { Form, Input, Checkbox, message } from 'antd'
+import { Form, Input, Checkbox, Button, message } from 'antd'
 
 const LoginForm = () => {
   const onFinish = (values) => {
@@ -26,7 +26,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="flex w-full px-10 py-5 justify-center font-josefin">
+    <div className="flex w-full px-10 py-5 justify-center font-nunito">
       <Form
         name="basic"
         initialValues={{
@@ -38,14 +38,14 @@ const LoginForm = () => {
         layout="vertical"
       >
         <div className="flex justify-center my-0 py-0">
-          <Form.Item label="Email" name="email" className="w-full">
-            <Input />
+          <Form.Item name="email" className="w-full">
+            <Input placeholder='Email'/>
           </Form.Item>
         </div>
 
         <div className="flex justify-center my-0 py-0">
-          <Form.Item label="Password" name="password" className="w-full">
-            <Input.Password />
+          <Form.Item name="password" className="w-full">
+            <Input.Password placeholder='Password'/>
           </Form.Item>
         </div>
 
@@ -56,11 +56,7 @@ const LoginForm = () => {
         </div>
 
         <div className="flex my-0 py-0">
-          <input
-            type="submit"
-            className="bg-[#003366] hover:opacity-90 text-white font-bold py-2 px-2 w-2/12 rounded"
-            value="Sign In"
-          />
+          <Button type='primary' htmlType='submit'>Sign In</Button>
         </div>
       </Form>
     </div>
