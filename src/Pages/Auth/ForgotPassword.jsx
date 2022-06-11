@@ -1,14 +1,14 @@
 import React from 'react'
 
-import SideHero from '../../Components/Auth/Utils/SideHero'
-import Auth from '../../Components/Auth/Auth'
-
-import Hero from '../../Images/hero1.png'
+import Hero from '../../Images/hero2.png'
 import LogoEvent from '../../Images/logoevent.jpg'
+
+import SideHero from '../../Components/Auth/Utils/SideHero'
+import Forgot from '../../Components/Auth/Forgot'
 
 import './CustomScrollbar.css'
 
-const Login = () => {
+const ForgotPassword = () => {
   return (
     <div className="container mx-auto h-screen bg-zinc-200">
       <div className="flex flex-row h-full">
@@ -19,20 +19,20 @@ const Login = () => {
                 Hi
                 <span className="text-[#003366] font-black my-0"> Event Folks</span>
                 <br />
-                Selamat Datang!
+                Jangan Khawatir!
               </>
             }
-            subtitle="Kami sangat senang berjumpa denganmu lagi."
+            subtitle="Kami akan membantu memulihkan akun kamu :)."
             hero={Hero}
           />
         </div>
 
         <div className="flex w-6/12 bg-slate-200 items-center place-content-center overflow-x-auto no-scrollbar style-5">
-          <Auth logo={LogoEvent} />
+          <Forgot logo={LogoEvent} />
         </div>
       </div>
     </div>
   )
 }
 
-export default Login
+export default ForgotPassword

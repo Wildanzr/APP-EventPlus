@@ -49,10 +49,12 @@ const LoginForm = () => {
           </Form.Item>
         </div>
 
-        <div className="flex my-0 py-0">
+        <div className="flex flex-row justify-between my-0 py-0">
           <Form.Item name="remember" valuePropName="checked">
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
+
+          <Button type='link'>Forgot password?</Button>
         </div>
 
         <div className="flex my-0 py-0">

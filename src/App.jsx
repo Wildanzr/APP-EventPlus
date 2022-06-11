@@ -3,12 +3,12 @@ import React from 'react'
 import './index.css'
 import 'antd/dist/antd.css'
 
-import Login from './Pages/Auth/Login'
+import AppRoutes from './Routes/AppRoutes'
 
 function App () {
   return (
     <div className="flex bg-white">
-      <Login />
+      <AppRoutes />
     </div>
   )
 }
