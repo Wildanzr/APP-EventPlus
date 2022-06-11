@@ -2,34 +2,40 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { Form, Input, Checkbox, message } from 'antd'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import './PhoneInput.css'
 
 const SignUpForm = ({ selectedRole, roleState }) => {
   const onFinish = (values) => {
-    const { address, email, firstname, lastname, password, phone, confirm } =
-      values
+    const { address, email, firstname, lastname, password, phone, confirm } = values
 
     // Loop through values and check if key is empty
     for (const key in values) {
       if (values[key] === undefined) {
-        message.error(`Please fill out ${key} fields`)
+        message.error(`Please fill out ${key} field`)
         return
       }
     }
 
     // Regex
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
-    const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4,7})$/
 
     if (!emailRegex.test(email)) {
-      message.error('Please enter a valid email address')
-    } else if (!phoneRegex.test(phone)) {
-      message.error('Please enter a valid phone number')
+      return message.error('Please enter a valid email address')
+    } else if (phone.length < 11) {
+      return message.error('Please enter a valid phone number')
     } else if (!passwordRegex.test(password)) {
-      message.error('Password must be at least 8 characters containing at least one number, one uppercase and one lowercase letter')
+      return message.error(
+        'Password must be at least 8 characters containing at least one number, one uppercase and one lowercase letter'
+      )
     } else if (password !== confirm) {
-      message.error('Password does not match')
+      return message.error('Password does not match')
     }
+
+    return message.success('Form submitted successfully')
   }
 
   const onFinishFailed = (errorInfo) => {
@@ -66,7 +72,9 @@ const SignUpForm = ({ selectedRole, roleState }) => {
 
         <div className="flex justify-center my-0 py-0">
           <Form.Item label="Phone" name="phone" className="w-full">
-            <Input />
+            <PhoneInput
+              country={'id'}
+            />
           </Form.Item>
         </div>
 
