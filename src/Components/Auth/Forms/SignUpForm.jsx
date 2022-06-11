@@ -1,14 +1,45 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable react/prop-types */
-import React from 'react'
-import { Form, Input, Checkbox, message } from 'antd'
+import React, { useState } from 'react'
+import { Form, Input, Button, Checkbox, Select, message } from 'antd'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import './PhoneInput.css'
 
 const SignUpForm = ({ selectedRole, roleState }) => {
+  // Destructure Select
+  const { Option } = Select
+
+  // Local state
+  const [agreed, setAgreed] = useState(false)
+  const [interest] = useState([
+    'Business',
+    'Education',
+    'Concert',
+    'Conference',
+    'Competition',
+    'Webinar',
+    'Social Talk',
+    'Technology',
+    'Fashion',
+    'Health',
+    'Blockchain',
+    'Marketing'
+  ])
+
+  // Map interest to interestList with Option component
+  const interestList = interest.map((interest) => (
+    <Option key={interest} value={interest}>
+      {interest}
+    </Option>
+  ))
+
+  const handleChange = (value) => {
+    console.log(`selected ${value}`)
+  }
+
   const onFinish = (values) => {
-    const { address, email, firstname, lastname, password, phone, confirm } = values
+    const { email, password, phone, confirm } = values
 
     // Loop through values and check if key is empty
     for (const key in values) {
@@ -35,6 +66,7 @@ const SignUpForm = ({ selectedRole, roleState }) => {
       return message.error('Password does not match')
     }
 
+    console.log(values)
     return message.success('Form submitted successfully')
   }
 
@@ -55,57 +87,65 @@ const SignUpForm = ({ selectedRole, roleState }) => {
         layout="vertical"
       >
         <div className="flex flex-row justify-between my-0 py-0">
-          <Form.Item label="Firstname" name="firstname" className="w-5/12">
-            <Input />
+          <Form.Item name="email" className="w-7/12">
+            <Input placeholder="Email" />
           </Form.Item>
 
-          <Form.Item label="Lastname" name="lastname" className="w-5/12">
-            <Input />
-          </Form.Item>
-        </div>
-
-        <div className="flex justify-center my-0 py-0">
-          <Form.Item label="Email" name="email" className="w-full">
-            <Input />
+          <Form.Item name="username" className="w-4/12">
+            <Input placeholder="username" />
           </Form.Item>
         </div>
 
         <div className="flex justify-center my-0 py-0">
-          <Form.Item label="Phone" name="phone" className="w-full">
-            <PhoneInput
-              country={'id'}
-            />
-          </Form.Item>
-        </div>
-
-        <div className="flex justify-center my-0 py-0">
-          <Form.Item label="Address" name="address" className="w-full">
-            <Input />
+          <Form.Item name="phone" className="w-full">
+            <PhoneInput country={'id'} />
           </Form.Item>
         </div>
 
         <div className="flex flex-col justify-center my-0 py-0">
-          <Form.Item label="Password" name="password" className="w-full">
-            <Input.Password />
+          <Form.Item name="password" className="w-full">
+            <Input.Password placeholder="Password" />
           </Form.Item>
 
-          <Form.Item label="Confirm Password" name="confirm" className="w-full">
-            <Input.Password />
+          <Form.Item name="confirm" className="w-full">
+            <Input.Password placeholder="Confirm Password" />
           </Form.Item>
         </div>
 
+        <div className="flex justify-center my-0 py-0">
+          <Form.Item name="interest" className="w-full">
+            <Select
+              mode="multiple"
+              allowClear
+              placeholder="Select your preferred interest"
+              onChange={handleChange}
+            >
+              {interestList}
+            </Select>
+          </Form.Item>
+        </div>
+
+        <Form.Item name="agreement" valuePropName="checked">
+          <Checkbox defaultChecked={agreed} onChange={() => {
+            setAgreed(!agreed)
+          }}>
+            I have read and agree to the <a href="">terms and conditions</a>
+          </Checkbox>
+        </Form.Item>
+
         <div className="flex justify-between my-5 py-0">
-          <button
-            className="bg-[#3d4853] hover:opacity-90 text-white font-bold py-2 px-2 w-2/12 rounded"
-            onClick={() => roleState()}
+          <Button
+            type="default"
+            onClick={() => {
+              roleState()
+            }}
           >
             Back
-          </button>
-          <input
-            type="submit"
-            className="bg-[#003366] hover:opacity-90 text-white font-bold py-2 px-2 w-2/12 rounded"
-            value="Sign In"
-          />
+          </Button>
+
+          <Button type="primary" htmlType="submit" disabled={!agreed}>
+            Sign Up
+          </Button>
         </div>
       </Form>
     </div>
