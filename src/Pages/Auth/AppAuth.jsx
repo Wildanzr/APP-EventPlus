@@ -3,10 +3,8 @@ import React from 'react'
 import SideHero from '../../Components/Auth/Utils/SideHero'
 import Auth from '../../Components/Auth/Auth'
 
-import Hero from '../../Images/hero1.png'
+import Hero from '../../Images/hero-auth.png'
 import LogoEvent from '../../Images/logoevent.jpg'
-
-import './CustomScrollbar.css'
 
 const AppAuth = () => {
   return (
@@ -27,7 +25,7 @@ const AppAuth = () => {
           />
         </div>
 
-        <div className="flex w-6/12 bg-slate-200 items-center place-content-center overflow-x-auto no-scrollbar style-5">
+        <div className="flex w-6/12 bg-slate-200 items-center place-content-center overflow-x-auto no-scrollbar">
           <Auth logo={LogoEvent} />
         </div>
       </div>

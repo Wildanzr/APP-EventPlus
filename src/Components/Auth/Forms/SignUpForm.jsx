@@ -79,6 +79,7 @@ const SignUpForm = ({ selectedRole, roleState }) => {
     Modal.info({
       title: 'EventPlus Terms and Conditions',
       width: '80%',
+      centered: true,
       content: (
         <div className="flex flex-col">
           <p>

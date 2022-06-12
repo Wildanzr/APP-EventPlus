@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { Form, Input, Checkbox, Button, message } from 'antd'
+import { Link } from 'react-router-dom'
 
 const LoginForm = () => {
   const onFinish = (values) => {
@@ -39,13 +40,13 @@ const LoginForm = () => {
       >
         <div className="flex justify-center my-0 py-0">
           <Form.Item name="email" className="w-full">
-            <Input placeholder='Email'/>
+            <Input placeholder="Email" />
           </Form.Item>
         </div>
 
         <div className="flex justify-center my-0 py-0">
           <Form.Item name="password" className="w-full">
-            <Input.Password placeholder='Password'/>
+            <Input.Password placeholder="Password" />
           </Form.Item>
         </div>
 
@@ -54,11 +55,15 @@ const LoginForm = () => {
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
 
-          <Button type='link'>Forgot password?</Button>
+          <Link to="/forgot-password">
+            <Button type="link">Forgot password?</Button>
+          </Link>
         </div>
 
         <div className="flex my-0 py-0">
-          <Button type='primary' htmlType='submit'>Sign In</Button>
+          <Button type="primary" htmlType="submit">
+            Sign In
+          </Button>
         </div>
       </Form>
     </div>
