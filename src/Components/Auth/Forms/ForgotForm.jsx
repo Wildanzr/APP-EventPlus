@@ -1,5 +1,6 @@
 import React from 'react'
-import { Form, Input, Button, message } from 'antd'
+import { Form, Input, Button, Divider, message } from 'antd'
+import { Link } from 'react-router-dom'
 
 const ForgotForm = () => {
   const onFinish = (values) => {
@@ -36,10 +37,14 @@ const ForgotForm = () => {
           </Form.Item>
         </div>
 
-        <div className="flex justify-center my-0 py-0">
+        <div className="flex flex-col justify-center my-0 py-0">
           <Button type="primary" htmlType="submit">
             Send me a recovery link
           </Button>
+          <Divider />
+          <Link to='/auth' className='flex justify-center'>
+            <Button type='link'>Back to Login</Button>
+          </Link>
         </div>
       </Form>
     </div>
